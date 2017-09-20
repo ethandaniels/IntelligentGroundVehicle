@@ -1,0 +1,28 @@
+iOS and Bluetooth LE Arudino: https://learn.adafruit.com/bno055-ble-ios-app
+Compass heading using magnetometers: http://bit.ly/2uVgGRp
+Calculating north with two GPS: http://bit.ly/2vxV7TX
+NGA C code for declination: http://bit.ly/2unmGAN
+
+
+Notes about using I2C:
+- On SDA and SCL boards typically use 10k pull ups, sometimes this isn't enough..
+if this is the case add: 3.3k to SCL and 2.2K to SDA. (kOhms)
+
+Notes on GPS:
+- Will desire true North
+- Use of multiple antennas
+- Will have to use a Kalman filter combining 9 DOF readings and GPS data for
+improved performance
+
+Notes on Camera: Desire a camera with best resolution and refresh rate
+This camera update would come into play if we had the money.
+
+
+!!Would like to consolidate use of arudinos!!
+
+Replacement Compass: http://bit.ly/2uNtCrF
+Compare GPS: http://bit.ly/2umNW27
+
+Possible GPS Module: https://www.sparkfun.com/products/10920
+
+Possible Camera Upgrade: https://www.amazon.com/dp/B012ETE75I?psc=1

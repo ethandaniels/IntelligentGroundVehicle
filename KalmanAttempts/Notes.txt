@@ -1,0 +1,43 @@
+GPIO:
+Previously the GPIO was not cleaned. The flags were suppressed, which works
+though could cause GPIO issues/exit failures. GPIO is hystertic so when .py
+starts again old information will cause issues in processing
+~solution: attempt error catching with try statments and clean at exit
+
+IMU:
+The IMU currently only reading in the compass heading from serial. It would
+be benifical to get the other 6 DOFs that this sensor offers.
+
+Kalman:
+Unsure at this point how to use kalman filter to combine GPS and IMU
+
+True North:
+Possibly be an issue with the way the compass value was being read in
+
+LIDAR:
+The LIDAR needs to be tested and implemented. Currently we have example code,
+will have to test if it works
+
+
+Current thought process 7/26:
+Upgrade to Arduino Zero for 32 bit ARM cortex (gives 48Mhz speed)
+GPS and IMU controlled by this
+Serial output of Lat,Lon,Magnetometer(x,y,z),Absolute Orientation(w,x,y,z)
+and Acceleration Vector (grav+x,y,z)
+
+Send this single serial input at 5-10Hz refresh rate to pi
+-On pi process fuzzy logic kalman filtering for best estimated lat, lon
+-On pi use filter new lat, lon and Magnetometer values for best known heading
+
+
+Solution overview:
+
+-High Priority
+GPS+IMU passthrough Kalman for best position results
+Must correct issue with finding true north
+Test LIDAR, implement in design
+Navigation Algorithm
+
+-Desirables
+Upgrade camera. Will want to have a camera straight ahead and above for lines
+This will include a great amount of OpenCV work. SPRING Semester
